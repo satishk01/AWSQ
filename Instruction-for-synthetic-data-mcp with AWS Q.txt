@@ -1,0 +1,55 @@
+### unzip installation
+sudo apt install unzip
+
+
+### Nodejs and npm installation
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+   #### only if it promts
+   sudo apt --fix-broken install
+   
+sudo apt-get install -y nodejs
+sudo apt install -y npm 
+
+# Install Mermaid CLI
+sudo npm install -g @mermaid-js/mermaid-cli
+
+
+##uv installation
+curl -LsSf https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz | tar zxf - -C /tmp
+sudo mv /tmp/uv-x86_64-unknown-linux-gnu/uv /usr/local/bin/
+sudo chmod +x /usr/local/bin/uv
+uv --version
+
+#### AWS Cli installation
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+
+AWS Q Cli installation link
+https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html
+
+
+configure AWS profile
+
+aws configure
+
+
+the contents of mcp.json for synthetic data generation
+
+{
+  "mcpServers": {
+    "awslabs.syntheticdata-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.syntheticdata-mcp-server"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-1"
+      },
+      "autoApprove": [],
+      "disabled": false
+    }
+  }
+}
+
